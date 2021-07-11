@@ -13,4 +13,9 @@ class Category extends Model
 	public function posts(){
 		return $this->hasMany('App\Models\Post');
 	}
+
+	public function getListCategoryAttribute(){
+		$category = $this->with('posts')->get();
+		return $category;
+	}
 }

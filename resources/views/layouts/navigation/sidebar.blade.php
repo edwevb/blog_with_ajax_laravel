@@ -13,7 +13,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" href="{{ url('/dashboard') }}">
+    <a class="nav-link" href="{{ url('/admin/dashboard') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span>
     </a>
   </li>
@@ -34,9 +34,9 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="{{ url('/posts') }}">Posts</a>
-        <a class="collapse-item" href="{{ url('/categories') }}">Categories</a>
-        <a class="collapse-item" href="{{ url('/tags') }}">Tags</a>
+        <a class="collapse-item" href="{{ url('/admin/posts') }}">Posts</a>
+        <a class="collapse-item" href="{{ url('/admin/categories') }}">Categories</a>
+        <a class="collapse-item" href="{{ url('/admin/tags') }}">Tags</a>
       </div>
     </div>
   </li>

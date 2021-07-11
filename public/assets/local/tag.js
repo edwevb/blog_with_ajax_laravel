@@ -14,7 +14,7 @@ $(document).on('click','#addButton', () => {
 $(document).on('click', '#editButton',  function() {
   removeFormValidation();
   const id = $(this).val(),
-  url = `/tags/${id}/edit`;
+  url = `/admin/tags/${id}/edit`;
   $.get(url, function(res){
     console.log(res)
     $('.btn-save').attr('name', res.id)
@@ -37,10 +37,10 @@ $('#tagModal form').on('submit', (e) => {
   };
 
   if (state == "add") {
-    url = "/tags"
+    url = "/admin/tags"
     type = "POST"
   }else{
-    url = '/tags/'+id
+    url = '/admin/tags/'+id
     type = "PUT"
   }
 
@@ -72,7 +72,7 @@ $('#tagModal form').on('submit', (e) => {
 $(document).on('click','#deleteButton',function(){
   const _token = $('meta[name="csrf-token"]').attr('content'),
   id = $(this).val(),
-  url = '/tags/'+id,
+  url = '/admin/tags/'+id,
   data = {
     id : id,
     _token:_token

@@ -5,10 +5,11 @@
 use App\Models\Post;
 use Faker\Generator as Faker;
 $factory->define(Post::class, function (Faker $faker) {
+	$title = $faker->sentence();
 	return [
 		'user_id' => 1,
-		'title' => $faker->sentence(),
-		'slug' => \Str::slug($faker->sentence()),
-		'body' => $faker->paragraph(3)
+		'title' => $title,
+		'slug' => \Str::slug($title),
+		'body' => $faker->paragraph(10)
 	];
 });

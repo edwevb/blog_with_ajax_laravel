@@ -40,7 +40,7 @@ $(document).on('click','#addButton', async () => {
 $(document).on('click', '#editButton', async function() {
   await removeValidationElem();
   const id = $(this).val();
-  const url = `/posts/${id}/edit`;
+  const url = `/admin/posts/${id}/edit`;
   $.get(url, async function(res){
     $('.btn-save').val("update");
     $('#postsModal').modal('show');
@@ -80,11 +80,11 @@ $('#postsModal form').on('submit', function(e){
   const data =  appendFormData(),
   state = $('.btn-save').val(),
   id = $('.btn-save').attr('name');
-
+  
   if (state == "add") {
-    url = "/posts"
+    url = "/admin/posts"
   }else{
-    url = `/posts/${id}`
+    url = `/admin/posts/${id}`
     data.append('_method', 'put');
   }
 
@@ -109,7 +109,7 @@ $('#postsModal form').on('submit', function(e){
         text: 'Something error, please check your input!',
         showCloseButton: true
       }).then(()=>{
-        formValidate(xhr);
+        formValidationShow(xhr);
       });
     }
   });
@@ -136,7 +136,7 @@ const appendFormData = ()=> {
 $(document).on('click','#deleteButton',function(){
   const _token = $('meta[name="csrf-token"]').attr('content'),
   id = $(this).val(),
-  url = `/posts/${id}`,
+  url = `/admin/posts/${id}`,
   data = {
     id : id,
     _token:_token
@@ -169,7 +169,7 @@ $(document).on('click','#deleteButton',function(){
   });
 });
 
-const formValidate = (xhr) => {
+const formValidationShow = (xhr) => {
   const res = xhr.responseJSON;
   let keys = "";
   if ($.isEmptyObject(res) == false) {

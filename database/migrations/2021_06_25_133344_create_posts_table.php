@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
             $table->foreignId('category_id')->nullable();
             $table->string('title',125);
             $table->string('slug',125);
-            $table->text('body');
+            $table->bigInteger('views')->default(0);
+            $table->longText('body');
             $table->text('thumb')->default('default_posts.png');
             $table->timestamps();
         });

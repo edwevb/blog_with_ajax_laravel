@@ -8,7 +8,7 @@
 <div class="container-fluid">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
       <li class="breadcrumb-item"><a href="#">Article</a></li>
       <li class="breadcrumb-item active" aria-current="page">Posts</li>
     </ol>
@@ -36,6 +36,7 @@
               <th>#</th>
               <th class="text-sm">TITLE</th>
               <th>AUTHOR</th>
+              <th>VIEWED</th>
               <th>TOTAL TAGS</th>
               <th>PUBLISHED</th>
               <th>UPDATED</th>
@@ -71,6 +72,7 @@
     {data: 'DT_RowIndex', name:'DT_RowIndex'},
     {data: 'title', name:'title'},
     {data: 'user.name', name:'user'},
+    {data: 'views', name:'views'},
     {data: 'total_tags', name:'total_tags'},
     {data: 'created_at', name:'created_at'},
     {data: 'updated_at', name:'updated_at'},

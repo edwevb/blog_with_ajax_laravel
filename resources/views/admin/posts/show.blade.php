@@ -7,9 +7,9 @@
 <div class="container-fluid">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+			<li class="breadcrumb-item"><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
 			<li class="breadcrumb-item"><a href="#">Article</a></li>
-			<li class="breadcrumb-item"><a href="{{ url('/posts') }}">Posts</a></li>
+			<li class="breadcrumb-item"><a href="{{ url('/admin/posts') }}">Posts</a></li>
 			<li class="breadcrumb-item active" aria-current="page">{{$post->title}}</li>
 		</ol>
 	</nav>
@@ -46,7 +46,7 @@
 			<div class="row align-items-center justify-content-between">
 				<div class="my-2">
 					@isset ($post->category)
-					Categories: <a class="small" href="{{ url('/categories/'.$post->category->slug) }}">{{$post->category->name}}</a>
+					Categories: <a class="small" href="{{ url('/admin/categories/'.$post->category->slug) }}">{{$post->category->name}}</a>
 					@else
 					Categories: None
 					@endisset
@@ -152,7 +152,7 @@
 
 	$(document).on('click', '#editButton',  function() {
 		removeFormValidation();
-		const url = "{{ url('/posts/'.$post->id.'/edit') }}";
+		const url = "{{ url('/admin/posts/'.$post->id.'/edit') }}";
 		$.get(url, function(res){
 			$('.btn-save').attr('name', res.id)
 			$('#postsModal').modal('show');
@@ -168,7 +168,7 @@
 	$('#postsModal form').on('submit', function(e){
 		e.preventDefault();
 		removeFormValidation();
-		const url = "{{ url('/posts/'.$post->id) }}",
+		const url = "{{ url('/admin/posts/'.$post->id) }}",
 		data = {
 			_token     : $('input[name=_token]').val(),
 			title      : $('#title').val(),
@@ -201,7 +201,7 @@
 
 	$(document).on('click','#deleteButton',function(){
 		const _token = $('meta[name="csrf-token"]').attr('content'),
-		url = "{{ url('/posts/'.$post->id) }}",
+		url = "{{ url('/admin/posts/'.$post->id) }}",
 		data = {
 			_token:_token
 		};
@@ -254,7 +254,7 @@
 				if (res.type == 'update') {
 					location.reload();
 				}else{
-					location.assign("{{ url('/posts') }}");
+					location.assign("{{ url('/admin/posts') }}");
 				}
 			});
 		});

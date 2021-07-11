@@ -6,9 +6,9 @@
 <div class="container-fluid">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+			<li class="breadcrumb-item"><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
 			<li class="breadcrumb-item"><a href="#">Article</a></li>
-			<li class="breadcrumb-item"><a href="{{ url('/tags') }}">Tags</a></li>
+			<li class="breadcrumb-item"><a href="{{ url('/admin/tags') }}">Tags</a></li>
 			<li class="breadcrumb-item active" aria-current="page">{{$tag->name}}</li>
 		</ol>
 	</nav>
@@ -29,7 +29,7 @@
 						{!! html_entity_decode($post->body) !!}
 					</div>
 					<div class="mt-3 small">
-						<a href="{{ url('/posts/'.$post->slug)}}" class="card-link text-info"><i class="fa fa-search-plus"></i></a>
+						<a href="{{ url('/admin/posts/'.$post->slug)}}" class="card-link text-info"><i class="fa fa-search-plus"></i></a>
 						<a href="javascript:void(0)" id="removePost" class="card-link text-danger" name="{{$post->id}}"><i class="fa fa-trash"></i></a>
 					</div>
 				</div>
@@ -90,7 +90,7 @@
 
 	$('#addPosts form').on('submit', function(e){
 		e.preventDefault();
-		const url = "{{ url('/tags/add-post/'.$tag->id) }}",
+		const url = "{{ url('/admin/tags/add-post/'.$tag->id) }}",
 		data = {
 			_token	: $('input[name=_token]').val(),
 			posts 	: $('#posts').val()
@@ -113,7 +113,7 @@
 
 	$(document).on('click', '#removePost',  function() {
 		const _token = $('meta[name="csrf-token"]').attr('content'),
-		url = "{{ url('/tags/remove-post/'.$tag->id) }}",
+		url = "{{ url('/admin/tags/remove-post/'.$tag->id) }}",
 		data = {
 			_token:_token,
 			posts: $(this).attr("name")

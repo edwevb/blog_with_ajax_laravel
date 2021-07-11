@@ -54,7 +54,7 @@ class PostController extends Controller
         'name' => $val,
         'slug' => \Str::slug($val)
       ]);
-      $tagIds = $tags->id;
+      array_push($tagIds, $tags->id);
     }
     return $tagIds;
   }
@@ -62,11 +62,13 @@ class PostController extends Controller
   public function uploadImage($post, $thumb, $ext)
   {
     $oldImage = public_path().'/'.'assets/local/img/'.$post->thumb;
-    if (isset($post->thumb) && $post->thumb != 'default_posts.png' && file_exists($oldImage)){
+    if (isset($post->thumb) && $post->thumb != 'default_posts.png' && file_exists($oldImage))
+    {
       unlink($oldImage);
     }
-    
-    if ($thumb->isValid()){
+
+    if ($thumb->isValid())
+    {
       $imageName = time().'.'.$ext;  
       $thumb->move('assets/local/img', $imageName);
       $post->thumb = $imageName;
@@ -75,7 +77,7 @@ class PostController extends Controller
   }
 
   public function show(Post $post)
-  { 
+  {
     $dataTags = Tag::select('name')->orderBy('name','ASC')->get();
     $dataCategories = Category::select('id','name')->orderBy('name','ASC')->get();
     $post = $post->with('tags:name,slug')->firstWhere('id', $post->id);
@@ -127,7 +129,7 @@ class PostController extends Controller
     ]);
 
     $listTags = $request->tags;
-    if ($post && !empty($listTags))
+    if ($post && isset($listTags))
     {
       $tagIds = $this->addTags($listTags);
       $post->tags()->sync($tagIds);
@@ -170,6 +172,13 @@ class PostController extends Controller
     }
 
     $post->tags()->detach($post->tags);
+    $sessionID = 'blog_views'.$post->id;
+
+    if (session()->has($sessionID))
+    {
+      session()->forget($sessionID);
+    }
+
     Post::destroy($post->id);
 
     return response()->json([
@@ -194,7 +203,7 @@ class PostController extends Controller
     })
     ->addColumn('action', function($row){
       return 
-      '<a href="/posts/'.$row->slug.'" id ="showButton" class="btn btn-info btn-sm m-1"><i class="fa fa-search-plus"></i></a>'.
+      '<a href="/admin/posts/'.$row->slug.'" id ="showButton" class="btn btn-info btn-sm m-1"><i class="fa fa-search-plus"></i></a>'.
       '<button value="'.$row->id.'" id ="editButton" class="btn btn-warning btn-sm m-1"><i class="fa fa-edit"></i></button>'.
       '<button value="'.$row->id.'" id ="deleteButton" class="btn btn-danger btn-sm m-1"><i class="fa fa-trash"></i></button>'
       ;

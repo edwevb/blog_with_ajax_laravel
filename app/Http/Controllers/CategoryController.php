@@ -80,7 +80,7 @@ class CategoryController extends Controller
 		})
 		->addColumn('action', function($row){
 			return 
-			'<a href="/categories/'.$row->slug.'" id ="showButton" class="btn btn-info btn-sm m-1"><i class="fa fa-search-plus"></i></a>'.
+			'<a href="/admin/categories/'.$row->slug.'" id ="showButton" class="btn btn-info btn-sm m-1"><i class="fa fa-search-plus"></i></a>'.
 			'<button value="'.$row->id.'" id ="editButton" class="btn btn-warning btn-sm m-1"><i class="fa fa-edit"></i></button>'.
 			'<button value="'.$row->id.'" id ="deleteButton" class="btn btn-danger btn-sm m-1"><i class="fa fa-trash"></i></button>'
 			;
@@ -91,12 +91,10 @@ class CategoryController extends Controller
 	public function addPost(Request $request, Category $category){
 		$reqPosts = $request->posts;
 		if (isset($reqPosts)){
-			foreach ($reqPosts as $val) {
-				$post = Post::firstWhere('id', $val);
-				$post->update([
-					'category_id' => $category->id
-				]);
-			}
+			$post = Post::firstWhere('id', $reqPosts)
+			->update([
+				'category_id' => $category->id
+			]);
 		}
 		return response()->json([
 			"message" => "Posts added successfully!",
@@ -105,8 +103,8 @@ class CategoryController extends Controller
 	}
 
 	public function removePost(Request $request){
-		$post = Post::firstWhere('slug', $request->posts);
-		$post->update([
+		$post = Post::firstWhere('id', $reqPosts)
+		->update([
 			'category_id' => null
 		]);
 
