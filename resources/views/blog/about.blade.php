@@ -7,7 +7,7 @@
 				<div class="page-heading">
 					<h1>About Me</h1>
 					<span class="subheading">
-						Hello!, My name is Edward Evbert
+						Hello! I'm Edward, it makes me happy to see you here.
 					</span>
 				</div>
 			</div>

@@ -6,7 +6,7 @@
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="site-heading">
           <h1>My Typography</h1>
-          <span class="subheading">A simple blog for write things that i wanted to</span>
+          <span class="subheading">This is just simple blog to write something that I think is necessary</span>
         </div>
       </div>
     </div>
