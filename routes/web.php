@@ -10,7 +10,7 @@ Route::get('/tags/{tag:slug}', 'PagesController@showTags')->name('home.tags');
 Route::get('/list-tags', 'PagesController@listTags')->name('home.listTags');
 Route::get('/about', 'PagesController@about')->name('home.about');
 
-route::group(['prefix' => '/admin', 'middleware' => ['auth','isAdmin']],function()
+route::group(['prefix' => '/admin', 'middleware' => ['auth','IsAdmin']],function()
 {
 	Route::get('/', function () {
 		return view('admin.index');
