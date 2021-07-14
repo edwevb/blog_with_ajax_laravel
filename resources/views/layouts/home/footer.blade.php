@@ -12,18 +12,10 @@
             </a>
           </li>
           <li class="list-inline-item">
-            <a href="https://instagram.com/edwevb">
+            <a href="mailto:edwardevbert@gmail.com">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://t.me/edwevb">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-envelope-open fa-stack-1x fa-inverse"></i>
               </span>
             </a>
           </li>

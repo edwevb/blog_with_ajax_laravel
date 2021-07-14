@@ -3,10 +3,10 @@
 <header class="masthead" style="background-image: url({{ asset('assets/blog/img/wave-dark.svg') }})">
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
+      <div class="col-md-10 col-lg-8 col-xl-9">
         <div class="site-heading">
-          <h1>My Typography</h1>
-          <span class="subheading">This is just simple blog to write something that I think is necessary</span>
+          <h1>EDWARD EVBERT TYPOGRAPHY</h1>
+          <span class="subheading">This is just simple blog to possibly write anything that I think is necessary, cause writing is equal to reading it twice</span>
         </div>
       </div>
     </div>
