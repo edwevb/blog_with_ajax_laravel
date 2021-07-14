@@ -28,17 +28,12 @@
   <meta property="twitter:description" content="Simple blog for sharing information">
   <meta property="twitter:image" content="{{$image ?? ''}}">
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
-
-  <!-- Bootstrap -->
-  <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/bootstrap.min.css') }}" />
-
-  <!-- Font Awesome Icon -->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
-  <!-- Custom stlylesheet -->
-  <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/style.css') }}" />
+  <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/bootstrap-5-styles.css') }}" />
+  <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/styles.css') }}" />
 
 </head>
 <body>
@@ -47,12 +42,8 @@
   @yield('container')
 
   @include('layouts.home.footer')
-  <!-- jQuery Plugins -->
-  <script src="{{ asset('assets/blog/js/jquery.min.js')}}"></script>
-  <script src="{{ asset('assets/blog/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/blog/js/jquery.stellar.min.js') }}"></script>
-  <script src="{{ asset('assets/blog/js/main.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('assets/blog/js/scripts.js') }}"></script>
 
 </body>
-
 </html>

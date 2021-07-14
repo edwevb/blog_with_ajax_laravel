@@ -28,7 +28,7 @@ class TagController extends Controller
 	}
 
 	public function show(Tag $tag){
-		$dataPosts = Post::select('id','title')->orderBy('title','ASC')->get();
+		$dataPosts = Post::select('id','title')->whereNotIn('id', $tag->posts)->orderBy('title','ASC')->get();
 		return view('admin.tags.show', compact('tag','dataPosts')); 
 	}
 

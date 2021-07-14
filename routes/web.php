@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/posts/{post:slug}', 'PagesController@showPost')->name('posts.showPost');
+Route::get('/list-categories', 'PagesController@listCategories')->name('home.listCategories');
 Route::get('/categories/{category:slug}', 'PagesController@showCategory')->name('home.categories');
 Route::get('/tags/{tag:slug}', 'PagesController@showTags')->name('home.tags');
+Route::get('/list-tags', 'PagesController@listTags')->name('home.listTags');
+Route::get('/about', 'PagesController@about')->name('home.about');
 
-route::group(['prefix' => '/admin', 'middleware' => 'auth'],function()
+route::group(['prefix' => '/admin', 'middleware' => ['auth','is_admin']],function()
 {
 	Route::get('/', function () {
 		return view('admin.index');
@@ -44,6 +47,9 @@ route::group(['prefix' => '/admin', 'middleware' => 'auth'],function()
 	Route::delete('/tags/{tag}', 'TagController@destroy')->name('tags.destroy');
 	Route::put('/tags/add-post/{tag}', 'TagController@addPost')->name('tags.addPost');
 	Route::put('/tags/remove-post/{tag}', 'TagController@removePost')->name('tags.removePost');
+
+	Route::get('/change-password', 'changePasswordController@index')->name('changePassword.index');;
+	Route::post('/change-password', 'ChangePasswordController@store')->name('changePassword.store');
 });
 
 

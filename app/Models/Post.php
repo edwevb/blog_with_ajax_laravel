@@ -30,9 +30,8 @@ class Post extends Model
 	}
 
 	public function getMostViewedAttribute(){
-		$post = Post::with('user:id,name','category:id,name,slug')
+		return $this->with('user:id,name','category:id,name,slug')
 		->orderBy('views', 'desc')->take(5)->get();
-		return $post;
 	}
 
 	public function getRelatedPosts($post){
