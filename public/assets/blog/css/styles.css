@@ -9,6 +9,7 @@
 }
 #mainNav .navbar-brand {
   font-weight: 800;
+  color: #fff;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link {
@@ -57,9 +58,6 @@
 @media (max-width: 768px){
   #mainNav{
     position: fixed;
-  }
-  #mainNav .navbar-brand {
-    color: #00ADB5;
   }
 }
 
