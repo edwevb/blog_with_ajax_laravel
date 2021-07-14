@@ -32,8 +32,4 @@ class LoginController extends Controller
     {
         return redirect('/login');
     }
-
-    public function changePassword(){
-        return 'ok';
-    }
 }

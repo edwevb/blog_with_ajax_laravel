@@ -90,35 +90,35 @@ class PostController extends Controller
     return $post;
   }
 
-  public function getBodyImage($requestBody)
-  {
-    $dom = new \DomDocument();
-    $dom->loadHtml($requestBody, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-    $imageFile = $dom->getElementsByTagName('img');
+  // public function getBodyImage($requestBody)
+  // {
+  //   $dom = new \DomDocument();
+  //   $dom->loadHtml($requestBody, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+  //   $imageFile = $dom->getElementsByTagName('img');
 
-    foreach($imageFile as $item => $img){
-      $data = $img->getAttribute('src');
-      if (isset($data) && !file_exists(public_path($data))) 
-      {
-        list($type, $data) = explode(';', $data);
-        list(, $data)      = explode(',', $data);
-        $imageDecoded      = base64_decode($data);
-        $imageName         = "/assets/local/img/posts/".time().$item.'.png';
-        $path              = public_path($imageName);
-        file_put_contents($path, $imageDecoded);
+  //   foreach($imageFile as $item => $img){
+  //     $data = $img->getAttribute('src');
+  //     if (isset($data) && !file_exists(public_path($data))) 
+  //     {
+  //       list($type, $data) = explode(';', $data);
+  //       list(, $data)      = explode(',', $data);
+  //       $imageDecoded      = base64_decode($data);
+  //       $imageName         = "/assets/local/img/posts/".time().$item.'.png';
+  //       $path              = public_path($imageName);
+  //       file_put_contents($path, $imageDecoded);
 
-        $img->removeAttribute('src');
-        $img->setAttribute('src', $imageName);
-      }
-    }
-    $requestBody = $dom->saveHTML();
-    return $requestBody;
-  }
+  //       $img->removeAttribute('src');
+  //       $img->setAttribute('src', $imageName);
+  //     }
+  //   }
+  //   $requestBody = $dom->saveHTML();
+  //   return $requestBody;
+  // }
 
   public function update(PostRequest $request, Post $post)
   {
 
-    $body =  $this->getBodyImage($request->body);
+    // $body =  $this->getBodyImage($request->body);
 
     $post = Post::firstWhere('id', $post->id);
     $post->update([
