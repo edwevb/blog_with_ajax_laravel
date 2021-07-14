@@ -48,6 +48,7 @@
     </div>
     <div class="col-md-4">
       <h3 class="posts-heading">Popular Posts</h3>
+      @isset ($post->mostViewed)
       @foreach ($post->mostViewed as $post)
       <!-- Post-->
       <div class="aside-post-preview">
@@ -62,6 +63,8 @@
       </div>
       <!-- /Post-->
       @endforeach
+      @endisset
+
     </div>
   </div>
 </div>
