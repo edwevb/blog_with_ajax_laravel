@@ -48,7 +48,7 @@ route::group(['prefix' => '/admin', 'middleware' => ['auth','CheckRole:1']],func
 	Route::put('/tags/add-post/{tag}', 'TagController@addPost')->name('tags.addPost');
 	Route::put('/tags/remove-post/{tag}', 'TagController@removePost')->name('tags.removePost');
 
-	Route::get('/change-password', 'changePasswordController@index')->name('changePassword.index');;
+	Route::get('/change-password', 'ChangePasswordController@index')->name('changePassword.index');;
 	Route::post('/change-password', 'ChangePasswordController@store')->name('changePassword.store');
 });
 
