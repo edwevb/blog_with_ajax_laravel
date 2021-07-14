@@ -124,7 +124,7 @@ class PostController extends Controller
     $post->update([
       'category_id' => $request->category,
       'title' => $request->title,
-      'body' => $request->title,
+      'body' => $request->body,
       'slug' => \Str::slug($request->title)
     ]);
 
