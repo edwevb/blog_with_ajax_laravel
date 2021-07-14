@@ -276,3 +276,18 @@ header.masthead .post-heading .meta a {
 .post-heading > .meta a:hover{
   color: #AAD8D3 !important;
 }
+
+.share{
+  margin-top: 25px;
+}
+
+.share > #socialShare{
+  padding: 25px;
+  display:none;
+}
+
+.at-label{
+  font-family: 'Open Sans'!important;
+  font-weight: 600;
+  font-size: 16px!important;
+}

@@ -40,5 +40,21 @@
 			</div>
 		</div>
 	</div>
+	<div class="text-center share">
+		<button class="btn btn-outline-dark btn-share btn-lg px-5 rounded-pill">SHARE</button>
+		<div id="socialShare" class="addthis_inline_share_toolbox_8sj8"></div>
+	</div>
 </article>
+
 @endsection
+@push('share')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eef7ac28f548f31"></script>
+<script>
+	$(document).ready(function(){
+		$(".btn-share").click(function(){
+			$("#socialShare").slideToggle();
+		});
+	});
+</script>
+@endpush
