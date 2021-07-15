@@ -20,16 +20,16 @@
   <meta property="og:url" content="{{ request()->url() }}">
   <meta property="og:title" content="{{$title ?? 'Edward Blog'}}">
   <meta property="og:description" content="Simple blog for sharing information">
-  <meta property="og:image" content="{{$image ?? asset('assets/img/edward-logo.png') }}">
+  <meta property="og:image" content="{{$image ?? asset('assets/img/logo.png') }}">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ request()->url() }}">
   <meta property="twitter:title" content="{{$title ?? 'Edward Blog'}}">
   <meta property="twitter:description" content="Simple blog for sharing information">
-  <meta property="twitter:image" content="{{$image ?? asset('assets/img/edward-logo.png') }}">
+  <meta property="twitter:image" content="{{$image ?? asset('assets/img/logo.png') }}">
 
-  <link rel="icon" type="image/png" href="{{ asset('assets/img/edward-logo.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
