@@ -1,1 +1,358 @@
-#mainNav{position:absolute;top:0;left:0;right:0;z-index:1030;background-color:#008288;font-family:"Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}#mainNav .navbar-brand{font-weight:800;color:#fff}#mainNav .navbar-nav>li.nav-item>a.nav-link{color:#fff}.navbar-toggler-icon:focus,.navbar-toggler:active,.navbar-toggler:focus{outline:0;box-shadow:none}#mainNav .navbar-toggler{box-shadow:none;font-size:.75rem;font-weight:800;padding:.75rem;text-transform:uppercase;color:#fff}#mainNav .navbar-nav>li.nav-item>a.nav-link{font-size:.75rem;font-weight:800;letter-spacing:.0625em;text-transform:uppercase}@media (min-width:992px){#mainNav{border-bottom:1px solid transparent;background:0 0}#mainNav .navbar-brand{color:#fff}#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{color:#aad8d3}#mainNav .navbar-nav>li.nav-item>a.nav-link{color:#fff}#mainNav .navbar-nav>li.nav-item>a.nav-link:focus,#mainNav .navbar-nav>li.nav-item>a.nav-link:hover{color:#aad8d3}}@media (max-width:768px){#mainNav{position:fixed}}@media (min-width:992px){#mainNav{transition:background-color .2s;transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden}#mainNav.is-fixed{position:fixed;top:-83px;transition:transform .2s;border-bottom:1px solid #fff;background-color:rgba(255,255,255,.9)}#mainNav.is-fixed .navbar-brand{color:#00adb5}#mainNav.is-fixed .navbar-brand:focus,#mainNav.is-fixed .navbar-brand:hover{color:#aad8d3}#mainNav.is-fixed .navbar-nav>li.nav-item>a{color:#00adb5}#mainNav.is-fixed .navbar-nav>li.nav-item>a:focus,#mainNav.is-fixed .navbar-nav>li.nav-item>a:hover{color:#aad8d3}#mainNav.is-visible{transform:translate3d(0,100%,0)}}.active{color:#aad8d3!important}footer{padding-top:3rem}.footer-name{color:#eee}footer .list-inline-item a:hover{color:#00adb5}header.masthead{position:relative;margin-bottom:3rem;padding-top:9rem;padding-bottom:8rem;background:no-repeat center center;background-color:#00adb5;background-size:cover;background-attachment:scroll}header.masthead:before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-color:rgb(0,0,0,.5);opacity:.5}header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading,header.masthead .site-heading .subheading{color:#fff;text-shadow:1px 1px 1px rgba(0,0,0,.5)}header.masthead .page-heading,header.masthead .site-heading{text-align:center}header.masthead .page-heading .h1,header.masthead .page-heading h1,header.masthead .site-heading .h1,header.masthead .site-heading h1{font-size:3rem}header.masthead .page-heading .subheading,header.masthead .site-heading .subheading{font-size:1.5rem;font-weight:300;line-height:1.1;display:block;margin-top:.625rem;font-family:"Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}header.masthead .post-heading .h1,header.masthead .post-heading h1{font-size:2.25rem}header.masthead .post-heading .meta,header.masthead .post-heading .subheading{line-height:1.1;display:block}header.masthead .post-heading .subheading{font-size:1.5rem;font-weight:600;margin:.75rem 0 2rem;font-family:"Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}header.masthead .post-heading .meta{font-size:1.25rem;font-weight:300;font-style:italic;font-family:Lora,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}header.masthead .post-heading .meta a{color:#fff;text-shadow:1px 1px 1px rgba(0,0,0,.5)}@media (min-width:992px){header.masthead{padding-top:12.5rem;padding-bottom:12.5rem}header.masthead .page-heading .h1,header.masthead .page-heading h1,header.masthead .site-heading .h1,header.masthead .site-heading h1{font-size:4rem}header.masthead .post-heading .h1,header.masthead .post-heading h1{font-size:3.5rem}header.masthead .post-heading .subheading{font-size:1.75rem}}.section-heading{font-size:1.75rem;font-weight:700;margin-top:3.75rem}.caption{font-size:.875rem;font-style:italic;display:block;margin:0;padding:.625rem;text-align:center}.post-preview>a{color:#393e46}.aside-post-meta a:hover,.aside-post-preview a:hover,.post-preview>a:focus,.post-preview>a:hover{text-decoration:none;color:#aad8d3}.post-preview>a>.post-title{font-size:1.5rem;margin-top:1.875rem;margin-bottom:.625rem}.post-preview>.post-subtitle{font-size:1rem;font-weight:300;margin-bottom:.625rem}.post-preview>.post-meta{font-size:.8rem;font-style:italic;margin-top:0;color:#6c757d}.post-preview>.post-meta>a{text-decoration:none}.pagination{margin-bottom:4rem!important}.posts-heading{color:#00adb5;text-transform:uppercase}.aside-post-preview{margin-top:1.875rem;margin-bottom:.625rem;color:#393e46}.aside-post-meta{font-size:.8rem}.page-heading h1,.post-heading>h1{text-transform:uppercase}.post-heading>.subheading>a{text-decoration:none;color:#eee}.post-heading>.subheading>a:hover{color:#aad8d3}.post-heading>.meta a{font-weight:700}.post-heading>.meta a:hover{color:#aad8d3!important}.share{margin-top:25px}.share>#socialShare{padding:25px;display:none}.at-label{font-family:"Open Sans"!important;font-weight:600;font-size:16px!important}.wrapper{width:150px;height:150px;overflow:hidden;position:relative;display:inline-block;cursor:pointer;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;border:solid 3px #00adb5;box-shadow:0 .125rem .25rem rgba(0,0,0,.5)!important}.circle{height:100%;-webkit-transition:all .5s;-moz-transition:all .5s;-o-transition:all .5s;transition:all .5s;background:url(/assets/img/profile.jpg);background-size:cover}.wrapper:focus .circle,.wrapper:hover .circle{-ms-transform:scale(1.2);-moz-transform:scale(1.2);-webkit-transform:scale(1.2);-o-transform:scale(1.2);transform:scale(1.2)}
+#mainNav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1030;
+	background-color: #008288;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+#mainNav .navbar-brand {
+	font-weight: 800;
+	color: #fff
+}
+
+#mainNav .navbar-nav>li.nav-item>a.nav-link {
+	color: #fff
+}
+
+.navbar-toggler-icon:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus {
+	outline: 0;
+	box-shadow: none
+}
+
+#mainNav .navbar-toggler {
+	box-shadow: none;
+	font-size: .75rem;
+	font-weight: 800;
+	padding: .75rem;
+	text-transform: uppercase;
+	color: #fff
+}
+
+#mainNav .navbar-nav>li.nav-item>a.nav-link {
+	font-size: .75rem;
+	font-weight: 800;
+	letter-spacing: .0625em;
+	text-transform: uppercase
+}
+
+@media (min-width:992px) {
+	#mainNav {
+		border-bottom: 1px solid transparent;
+		background: 0 0
+	}
+	#mainNav .navbar-brand {
+		color: #fff
+	}
+	#mainNav .navbar-brand:focus,
+	#mainNav .navbar-brand:hover {
+		color: #aad8d3
+	}
+	#mainNav .navbar-nav>li.nav-item>a.nav-link {
+		color: #fff
+	}
+	#mainNav .navbar-nav>li.nav-item>a.nav-link:focus,
+	#mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
+		color: #aad8d3
+	}
+}
+
+@media (max-width:768px) {
+	#mainNav {
+		position: fixed
+	}
+}
+
+@media (min-width:992px) {
+	#mainNav {
+		transition: background-color .2s;
+		transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden
+	}
+	#mainNav.is-fixed {
+		position: fixed;
+		top: -83px;
+		transition: transform .2s;
+		border-bottom: 1px solid #fff;
+		background-color: rgba(255, 255, 255, .9)
+	}
+	#mainNav.is-fixed .navbar-brand {
+		color: #00adb5
+	}
+	#mainNav.is-fixed .navbar-brand:focus,
+	#mainNav.is-fixed .navbar-brand:hover {
+		color: #aad8d3
+	}
+	#mainNav.is-fixed .navbar-nav>li.nav-item>a {
+		color: #00adb5
+	}
+	#mainNav.is-fixed .navbar-nav>li.nav-item>a:focus,
+	#mainNav.is-fixed .navbar-nav>li.nav-item>a:hover {
+		color: #aad8d3
+	}
+	#mainNav.is-visible {
+		transform: translate3d(0, 100%, 0)
+	}
+}
+
+.active {
+	color: #aad8d3!important
+}
+
+footer {
+	padding-top: 3rem
+}
+
+.footer-name {
+	color: #eee
+}
+
+footer .list-inline-item a:hover {
+	color: #00adb5
+}
+
+header.masthead {
+	position: relative;
+	margin-bottom: 3rem;
+	padding-top: 9rem;
+	padding-bottom: 8rem;
+	background: no-repeat center center;
+	background-color: #00adb5;
+	background-size: cover;
+	background-attachment: scroll
+}
+
+header.masthead:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgb(0, 0, 0, .5);
+	opacity: .5
+}
+
+header.masthead .page-heading,
+header.masthead .post-heading,
+header.masthead .site-heading,
+header.masthead .site-heading .subheading {
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .5)
+}
+
+header.masthead .page-heading,
+header.masthead .site-heading {
+	text-align: center
+}
+
+header.masthead .page-heading .h1,
+header.masthead .page-heading h1,
+header.masthead .site-heading .h1,
+header.masthead .site-heading h1 {
+	font-size: 3rem
+}
+
+header.masthead .page-heading .subheading,
+header.masthead .site-heading .subheading {
+	font-size: 1.5rem;
+	font-weight: 300;
+	line-height: 1.1;
+	display: block;
+	margin-top: .625rem;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+header.masthead .post-heading .h1,
+header.masthead .post-heading h1 {
+	font-size: 2.25rem
+}
+
+header.masthead .post-heading .meta,
+header.masthead .post-heading .subheading {
+	line-height: 1.1;
+	display: block
+}
+
+header.masthead .post-heading .subheading {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: .75rem 0 2rem;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+header.masthead .post-heading .meta {
+	font-size: 1.25rem;
+	font-weight: 300;
+	font-style: italic;
+	font-family: Lora, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+header.masthead .post-heading .meta a {
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .5)
+}
+
+@media (min-width:992px) {
+	header.masthead {
+		padding-top: 12.5rem;
+		padding-bottom: 12.5rem
+	}
+	header.masthead .page-heading .h1,
+	header.masthead .page-heading h1,
+	header.masthead .site-heading .h1,
+	header.masthead .site-heading h1 {
+		font-size: 4rem
+	}
+	header.masthead .post-heading .h1,
+	header.masthead .post-heading h1 {
+		font-size: 3.5rem
+	}
+	header.masthead .post-heading .subheading {
+		font-size: 1.75rem
+	}
+}
+
+.section-heading {
+	font-size: 1.75rem;
+	font-weight: 700;
+	margin-top: 3.75rem
+}
+
+.caption {
+	font-size: .875rem;
+	font-style: italic;
+	display: block;
+	margin: 0;
+	padding: .625rem;
+	text-align: center
+}
+
+.post-preview>a {
+	color: #393e46
+}
+
+.aside-post-meta a:hover,
+.aside-post-preview a:hover,
+.post-preview>a:focus,
+.post-preview>a:hover {
+	text-decoration: none;
+	color: #aad8d3
+}
+
+.post-preview>a>.post-title {
+	font-size: 1.5rem;
+	margin-top: 1.875rem;
+	margin-bottom: .625rem
+}
+
+.post-preview>.post-subtitle {
+	font-size: 1rem;
+	font-weight: 300;
+	margin-bottom: .625rem
+}
+
+.post-preview>.post-meta {
+	font-size: .8rem;
+	font-style: italic;
+	margin-top: 0;
+	color: #6c757d
+}
+
+.post-preview>.post-meta>a {
+	text-decoration: none
+}
+
+.pagination {
+	margin-bottom: 4rem!important
+}
+
+.posts-heading {
+	color: #00adb5;
+	text-transform: uppercase
+}
+
+.aside-post-preview {
+	margin-top: 1.875rem;
+	margin-bottom: .625rem;
+	color: #393e46
+}
+
+.aside-post-meta {
+	font-size: .8rem
+}
+
+.page-heading h1,
+.post-heading>h1 {
+	text-transform: uppercase
+}
+
+.post-heading>.subheading>a {
+	text-decoration: none;
+	color: #eee
+}
+
+.post-heading>.subheading>a:hover {
+	color: #aad8d3
+}
+
+.post-heading>.meta a {
+	font-weight: 700
+}
+
+.post-heading>.meta a:hover {
+	color: #aad8d3!important
+}
+
+.share {
+	margin-top: 25px
+}
+
+.share>#socialShare {
+	padding: 25px;
+	display: none
+}
+
+.at-label {
+	font-family: "Open Sans"!important;
+	font-weight: 600;
+	font-size: 16px!important
+}
+
+.wrapper {
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: solid 3px #00adb5;
+	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .5)!important
+}
+
+.circle {
+	height: 100%;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+	background: url(/assets/img/profile.jpg);
+	background-size: cover
+}
+
+.wrapper:focus .circle,
+.wrapper:hover .circle {
+	-ms-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2)
+}
