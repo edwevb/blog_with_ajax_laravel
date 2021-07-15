@@ -35,7 +35,7 @@
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/bootstrap-5-styles.css') }}" />
-  <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/styles.css') }}" />
+  <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/page.styles.css') }}" />
 
 </head>
 <body>
