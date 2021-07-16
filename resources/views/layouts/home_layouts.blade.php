@@ -33,10 +33,9 @@
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/bootstrap-5-styles.min.css') }}" />
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/page.styles.min.css') }}" />
-
+  @stack('editor_styles')
 </head>
 <body>
   @include('layouts.home.header')
@@ -47,5 +46,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('assets/blog/js/scripts.js') }}"></script>
   @stack('share')
+  @stack('editor_scripts')
 </body>
 </html>

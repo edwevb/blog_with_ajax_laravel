@@ -1,7 +1,10 @@
 @extends('layouts.admin_layouts', ['title' => $post->title])
 @push('pageStyles')
 <link rel="stylesheet" href="{{ asset('assets/vendor/selectize/selectize.css') }}">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
 <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote.css') }}">
+<link href="{{ asset('assets/vendor/prism/prism.css') }}" rel="stylesheet">
 @endpush
 @section('container')
 <div class="container-fluid">
@@ -127,13 +130,20 @@
 @push('ajax_scripts')
 <script src="{{ asset('assets/vendor/sweet-alert/sweetalert2.js') }}"></script>
 <script src="{{ asset('assets/vendor/selectize/selectize.js') }}"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
 <script src="{{ asset('assets/vendor/summernote/summernote.js') }}"></script>
+<script src="{{ asset('assets/vendor/prism/prism.min.js') }}"></script>
 <script>
 
 	$('#body').summernote({
 		placeholder: 'Write here..',
 		tabsize: 2,
-		height: 350
+		height: 350,
+		codemirror: {
+			theme: 'monokai'
+		}
 	});
 
 	let $selectCategory = $('#category').selectize({

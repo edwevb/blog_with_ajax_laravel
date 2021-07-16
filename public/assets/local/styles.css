@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik&display=swap');
 
+.note-editor.note-frame.fullscreen{
+	background: #fff;
+}
+
 h1, h2, h3, h4, h5, h6, th{
 	font-family: 'Rubik', sans-serif;
 }

@@ -1,4 +1,7 @@
 @extends('layouts.home_layouts', ['title' => $post->title, 'image' => $post->thumb])
+@push('editor_styles')
+<link href="{{ asset('assets/vendor/prism/prism.css') }}" rel="stylesheet">
+@endpush
 @section('container')
 <header class="masthead" style="background-image: url({{ asset('assets/blog/img/wave-dark.svg') }})">
 	<div class="container position-relative px-4 px-lg-5">
@@ -57,4 +60,7 @@
 		});
 	});
 </script>
+@endpush
+@push('editor_scripts')
+<script src="{{ asset('assets/vendor/prism/prism.min.js') }}"></script>
 @endpush
