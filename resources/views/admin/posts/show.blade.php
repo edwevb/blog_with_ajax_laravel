@@ -65,7 +65,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="d-sm-inline-block mb-3 align-items-center">
 		<button id="editButton" class="btn btn-warning" value="{{$post->id}}">
 			<i class="fas fa-edit"></i>
@@ -77,7 +76,6 @@
 		</button>
 	</div>
 </div>
-
 <div class="modal fade" id="postsModal" tabindex="-1" aria-labelledby="postsModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
