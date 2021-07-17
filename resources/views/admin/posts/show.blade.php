@@ -140,6 +140,7 @@
 		tabsize: 2,
 		height: 350,
 		codemirror: {
+			line-numbers:true,
 			theme: 'monokai'
 		}
 	});
