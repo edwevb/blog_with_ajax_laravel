@@ -24,15 +24,20 @@
 	<div class="container px-4 px-lg-5">
 		<div class="row gx-4 gx-lg-5 justify-content-center">
 			<div class="col-md-10 col-lg-8 col-xl-7">
-				<p>
-					Deret bilangan fibonacci adalah susunan angka sederhana dimana angka selanjutnya berasal dari hasil penjumlahan dua angka sebelumnya (0,1,1,2,3,5,8,13,21,...dst). Rumus deret Fibonacci bisa ditulis sebagai berikut Un = Un-2 + Un-1, artinya suku ke-n perupakan penjumlahan dari dua suku sebelumnya.
-				</p>
-				<p>
-					Berikut adalah solusi menghitung deret angka menggunakan bahasa pemrograman PHP:
-				</p>
-				<h3>1. Menggunakan Perulangan</h3>
-				<p>
+<p>Hello there! on this occasion.. gw ingin bercerita tentang pengalaman gw saat berkecimpung di dunia bridge. Dari bagaimana awal gw memulai, apa saja tantangan yang gw hadapi, sampai bagaimana akhirnya gw bisa melalui semua till now. The way I tried sooo hard just to be number one, how I realize being the best wasn't that best, and the way Bridge changed me.</p>
+<i>	&ldquo;ha?? bridge? jembatan maksudnya??&rdquo;</i>
+<p>Iya.. jembatan, tapi bukan jembatan biasa. Lebih tepatnya Mind Sports Contract Bridge.</p>
+<i>&ldquo;Contract Bridge itu olahraga apa???&rdquo;</i> 
+<p>Contract Bridge adalah salah satu cabang olahraga otak yang mengandalkan kemampuan teknis, kecerdasan, dan juga keberuntungan dengan menggunakan kartu. Bridge juga dapat diartikan sebagai jembatan yang dibentangkan untuk mencapai suatu persetujuan atau kontrak tertentu antara dua individu yang saling berkomunikasi dengan menggunakan sistem yang disebut bidding.</p>
+<i>&ldquo;Ohh.. terus cara mainnya???&rdquo;</i>
+<p>Permainan Bridge ini dimulai dengan dibagikannya satu set kartu (52) secara acak ke semua pemain, lalu dilakukannya perebutan kontrak oleh kedua pasangan melalui penawaran/bidding. Misi dari pasangan yang memenangkan penawaran/bidding adalah memenuhi kontrak sesuai penawarannya atau bahkan melebihinya, sedangkan pasangan yang lain berusaha agar kontrak tersebut gagal dipenuhi. Kontrak adalah pernyataan oleh salah satu pasangan bahwa pihak mereka akan meng ambil sejumlah (atau lebih) trik. Sedangkan, yang dimaksud dengan trik ini adalah kemenangan pada satu putaran kartu dari empat pemain. Karena jum lah kartu ada 52 dan tiap-tiap pemain memegang 13 kartu, maka terdapat 13 trik dalam satu kali permainan. Adapun penawaran/bidding ini menentukan pihak yang menyatakan, the strain of trump dan lokasi pemimpin untuk kartu di tangan.</p>
+<i>&ldquo;Ohh gitu.. hmm.. kayaknya gampang ya??&rdquo;</i>
+<p>hehehe iya :')</p>
+<p>Oke tanpa bertele-tele lagi atau menjadi dua public figur yang bertanya sekaligus memberi jawaban, let's dive in!</p>
+<p>In the beginning of time.. (asekk)<br>Gw masih menjadi karyawan disalah satu perusahaan yang bergerak di bidang keuangan. Lalu nyokap bilang katanya ada kesempatan untuk kuliah melalui jalur beasiswa Bridge, iya.. beasiwa.. which is I don't need to pay attention (that much) about.. yeah you know what I mean.</p>
+<p>So.. gw akhirnya..</p>
 
+<p class="text-muted">To be continued..</p>
 			</div>
 		</div>
 	</div>
