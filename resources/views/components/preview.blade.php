@@ -34,9 +34,12 @@
 <i>&ldquo;Ohh gitu.. hmm.. kayaknya gampang ya??&rdquo;</i>
 <p>hehehe iya :')</p>
 <p>Oke tanpa bertele-tele lagi atau menjadi dua public figur yang bertanya sekaligus memberi jawaban, let's dive in!</p>
-<p>In the beginning of time.. (asekk)<br>Gw masih menjadi karyawan disalah satu perusahaan yang bergerak di bidang keuangan. Lalu nyokap bilang katanya ada kesempatan untuk kuliah melalui jalur beasiswa Bridge, iya.. beasiwa.. which is I don't need to pay attention (that much) about.. yeah you know what I mean.</p>
+<p>
+<img class="img-fluid" src="https://i.postimg.cc/KzzkgJsT/IMG-20181118-223721.jpg" alt="Telkom Indonesia Open 2018">
+<span class="caption text-muted">Telkom Indonesia Open 2018</span>
+ </p>
+<p>In the beginning of time.. (asekk)<br>Gw masih menjadi karyawan disalah satu perusahaan yang bergerak di bidang keuangan. Lalu nyokap bilang katanya ada kesempatan untuk kuliah melalui jalur beasiswa Bridge, iya.. beasiswa.. which is I don't need to pay attention (that much) about.. yeah you know what I mean.</p>
 <p>So.. gw akhirnya..</p>
-
 <p class="text-muted">To be continued..</p>
 			</div>
 		</div>
