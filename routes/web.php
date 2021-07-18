@@ -50,6 +50,10 @@ route::group(['prefix' => '/admin', 'middleware' => ['auth','CheckRole:1']],func
 
 	Route::get('/change-password', 'ChangePasswordController@index')->name('changePassword.index');;
 	Route::post('/change-password', 'ChangePasswordController@store')->name('changePassword.store');
+
+	Route::get('/preview', function(){
+		return view('components.preview');
+	});
 });
 
 

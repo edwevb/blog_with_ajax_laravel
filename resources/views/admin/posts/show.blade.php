@@ -1,9 +1,9 @@
 @extends('layouts.admin_layouts', ['title' => $post->title])
 @push('pageStyles')
 <link rel="stylesheet" href="{{ asset('assets/vendor/selectize/selectize.css') }}">
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
-<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/codemirror/codemirror.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/codemirror/theme/monokai.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote-bs4.min.css') }}">
 <link href="{{ asset('assets/vendor/prism/prism.css') }}" rel="stylesheet">
 @endpush
 @section('container')
@@ -77,7 +77,7 @@
 	</div>
 </div>
 <div class="modal fade" id="postsModal" tabindex="-1" aria-labelledby="postsModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-xl">
+	<div class="modal-dialog modal-xl modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="postsModalLabel">Modal title</h5>
@@ -119,6 +119,7 @@
 						<textarea class="form-control" id="body" name="body" rows="3"></textarea>
 					</div>
 					<button type="submit" class="btn btn-primary btn-save" value="update">Save changes</button>
+					<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
 				</form>
 			</div>
 		</div>
@@ -128,22 +129,57 @@
 @push('ajax_scripts')
 <script src="{{ asset('assets/vendor/sweet-alert/sweetalert2.js') }}"></script>
 <script src="{{ asset('assets/vendor/selectize/selectize.js') }}"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
-<script src="{{ asset('assets/vendor/summernote/summernote.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/codemirror/codemirror.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/codemirror/xml.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/codemirror/formatting.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/summernote-bs4.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/prism/prism.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/plugin/prettify/summernote-ext-prettify.min.js') }}"></script>
 <script>
+	$(document).ready(function(){
+		// var previewButton = function () {
+		// 	let ui = $.summernote.ui;
+		// 	let button = ui.button({
+		// 		contents: 'Preview',
+		// 		tooltip: 'preview',
+		// 		click: function () {
+		// 			$('#preview-box').html($('#body').summernote('code'));
+		// 		}
+		// 	});
+		// 	return button.render();
+		// }
 
-	$('#body').summernote({
-		placeholder: 'Write here..',
-		tabsize: 2,
-		height: 350,
-		codemirror: {
-			line-numbers:true,
-			theme: 'monokai'
-		}
-	});
+		$('#body').summernote({
+			placeholder: 'Write here..',
+			tabsize: 2,
+			height: 350,
+			dialogsInBody: true,
+			dialogsFade: true,
+			styleTags: [
+			'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+			{ title: 'Normal', tag: 'p', className: '', value: 'div' },
+			{ title: 'Paragraph', tag: 'p', className: '', value: 'p' },
+			{ title: 'code', tag: 'p', className: '', value: 'pre' },
+			{ title: 'Blockquote', tag: 'p', className: 'blockquote', value: 'blockquote' },
+			],
+			toolbar: [
+			['style', ['style','undo','redo']],
+			['insert', ['hr','table','link', 'picture', 'video','prettyprint']],
+			['font', ['bold', 'italic','underline','superscript','subscript','clear']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['fontname', ['fontname','fontsize','color']],
+			['view', ['fullscreen', 'codeview','preview', 'help']],
+			],
+			// buttons: {
+			// 	preview: previewButton
+			// },
+			codemirror: {
+				mode: 'text/html',
+				lineNumbers: true,
+				theme: 'monokai'
+			}
+		});
+	})
 
 	let $selectCategory = $('#category').selectize({
 		plugins: ["restore_on_backspace"]
@@ -158,13 +194,16 @@
 		maxItems: 5
 	});
 
-
 	$(document).on('click', '#editButton',  function() {
 		removeFormValidation();
 		const url = "{{ url('/admin/posts/'.$post->id.'/edit') }}";
 		$.get(url, function(res){
 			$('.btn-save').attr('name', res.id)
-			$('#postsModal').modal('show');
+			$('.modal-title').text("Edit post");
+			$('#postsModal').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
 			$('#title').val(res.title);
 			$('#body').summernote('code', res.body);
 			$selectCategory[0].selectize.setValue(res.category_id);

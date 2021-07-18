@@ -2,7 +2,10 @@
 @push('pageStyles')
 <link rel="stylesheet" href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/selectize/selectize.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/codemirror/codemirror.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/codemirror/theme/monokai.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote-bs4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/prism/prism.css') }}">
 @endpush
 @section('container')
 <div class="container-fluid">
@@ -61,8 +64,13 @@
 @push('ajax_scripts')
 <script src="{{ asset('assets/vendor/sweet-alert/sweetalert2.js') }}"></script>
 <script src="{{ asset('assets/vendor/selectize/selectize.js') }}"></script>
-<script src="{{ asset('assets/vendor/summernote/summernote.js') }}"></script>
-<script src="{{ asset('assets/local/post.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/codemirror/codemirror.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/codemirror/xml.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/codemirror/formatting.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/summernote-bs4.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/prism/prism.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/plugin/prettify/summernote-ext-prettify.min.js') }}"></script>
+<script src="{{ asset('assets/local/post.min.js') }}"></script>
 <script>
   var table = $('#postTable').DataTable({
     processing : true,

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Yajra\DataTables\DataTables;
+use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use App\Models\Category;
-use App\Http\Requests\PostRequest;
+use Yajra\DataTables\DataTables;
 
 class PostController extends Controller
 {

@@ -1,15 +1,15 @@
 /* PrismJS 1.24.1
 https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+markdown+markup-templating+php+scss+sql&plugins=line-numbers+show-language+normalize-whitespace+toolbar+copy-to-clipboard */
 /**
- * okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
- * @author ocodia
- */
+* okaidia theme for JavaScript, CSS and HTML
+* Loosely based on Monokai textmate theme by http://www.monokai.nl/
+* @author ocodia
+*/
 
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;
-	background: none;
+	background: #272822;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
@@ -152,18 +152,18 @@ pre[class*="language-"].line-numbers > code {
 
 }
 
-	.line-numbers-rows > span {
-		display: block;
-		counter-increment: linenumber;
-	}
+.line-numbers-rows > span {
+	display: block;
+	counter-increment: linenumber;
+}
 
-		.line-numbers-rows > span:before {
-			content: counter(linenumber);
-			color: #999;
-			display: block;
-			padding-right: 0.8em;
-			text-align: right;
-		}
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #999;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+}
 
 div.code-toolbar {
 	position: relative;
@@ -182,7 +182,7 @@ div.code-toolbar:hover > .toolbar {
 }
 
 /* Separate line b/c rules are thrown out if selector is invalid.
-   IE11 and old Edge versions don't support :focus-within. */
+IE11 and old Edge versions don't support :focus-within. */
 div.code-toolbar:focus-within > .toolbar {
 	opacity: 1;
 }

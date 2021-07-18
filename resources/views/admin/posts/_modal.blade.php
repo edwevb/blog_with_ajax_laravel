@@ -47,6 +47,7 @@
             </div>
           </div>
           <button type="submit" class="btn btn-primary btn-save" value="update">Save changes</button>
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>
     </div>

@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="text-center py-5 bg-dark">
-    <img height="150" src="{{ asset('assets/img/logo.png') }}" alt="">
+    <img class="rounded" height="150" src="{{ asset('assets/img/logo.png') }}" alt="">
     <div class="small text-light fst-italic mt-4">Copyright &copy;2020 . <a class="footer-name" href="{{ url('/about') }}">Edward Evbert Angkouw</a>
     </div>
   </div>

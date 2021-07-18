@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
         }
-        \Schema::defaultStringLength(191);
+        \Blade::directive('description', function () {
+            return "This is just simple blog to possibly write anything that I think is necessary, cause writing is equal to reading it twice";
+        });
     }
 }

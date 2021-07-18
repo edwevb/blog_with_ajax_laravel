@@ -2,11 +2,35 @@ $('.modal').on('shown.bs.modal', function() {
   $(this).find('[autofocus]').focus();
 });
 
-$('#body').summernote({
-  placeholder: 'Write here..',
-  tabsize: 2,
-  height: 350
-});
+$(document).ready(function(){
+  $('#body').summernote({
+    placeholder: 'Write here..',
+    tabsize: 2,
+    height: 350,
+    dialogsInBody: true,
+    dialogsFade: true,
+    styleTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    { title: 'Normal', tag: 'p', className: '', value: 'div' },
+    { title: 'Paragraph', tag: 'p', className: '', value: 'p' },
+    { title: 'code', tag: 'p', className: '', value: 'pre' },
+    { title: 'Blockquote', tag: 'p', className: 'blockquote', value: 'blockquote' },
+    ],
+    toolbar: [
+    ['style', ['style','undo','redo']],
+    ['insert', ['hr','table','link', 'picture', 'video','prettyprint']],
+    ['font', ['bold', 'italic','underline','superscript','subscript','clear']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['fontname', ['fontname','fontsize','color']],
+    ['view', ['fullscreen', 'codeview','preview', 'help']],
+    ],
+    codemirror: {
+      mode: 'text/html',
+      lineNumbers: true,
+      theme: 'monokai'
+    }
+  });
+})
 
 let $selectCategory = $('#category').selectize({
  plugins: ["restore_on_backspace"]
@@ -33,7 +57,10 @@ $(document).on('click','#addButton', async () => {
   document.getElementById('postForm').reset();
   $('.btn-save').val("add");
   $('.modal-title').text("Add post");
-  $('#postsModal').modal('show');
+  $('#postsModal').modal({
+    backdrop: 'static',
+    keyboard: false
+  });
   await setFormValueBeforeAjaxPost();
 });
 
@@ -43,7 +70,10 @@ $(document).on('click', '#editButton', async function() {
   const url = `/admin/posts/${id}/edit`;
   $.get(url, async function(res){
     $('.btn-save').val("update");
-    $('#postsModal').modal('show');
+    $('#postsModal').modal({
+      backdrop: 'static',
+      keyboard: false
+    });
     $('.modal-title').text("Update post");
     await setFormValueBeforeAjaxPut(res);
   });
