@@ -29,7 +29,9 @@
 
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat :300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/bootstrap-5-styles.min.css') }}" />
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/page.styles.min.css') }}" />

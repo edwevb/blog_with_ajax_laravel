@@ -18,7 +18,7 @@
 			<ul class="list-group">
 				<li class="list-group-item d-flex justify-content-between align-items-center">
 					<a href="{{ url('/tags/'.$tag->slug) }}">{{$tag->name}}</a>
-					<span class="badge bg-primary rounded-pill">Posts: {{$tag->posts()->count()}}</span>
+					<span class="badge bg-primary rounded-pill">Posts: {{$tag->totalPosts}}</span>
 				</li>
 			</ul>
 			@endforeach

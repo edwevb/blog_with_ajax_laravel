@@ -15,9 +15,11 @@ class Tag extends Model
 		return $this->belongsToMany('App\Models\Post', 'post_tag');
 	}
 
-	public function getMostViewedByTagAttribute()
-	{
-		$tagPopular = Tag::posts()->orderBy('views','desc')->first();
-		return $tagPopular;	
+	public function getTotalPostsAttribute(){
+		return $this->posts()->active(true)->count();
+	}
+
+	public function getPostsAttribute(){
+		return $this->posts()->active(true)->simplePaginate(2);
 	}
 }

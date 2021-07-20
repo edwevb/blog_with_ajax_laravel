@@ -9,8 +9,8 @@
   <meta name="author" content="Edward Evbert Angkouw">
   <title>{{$title ?? 'Dashboard'}}</title>
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/local/styles.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dashboard/css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/dashboard/local/styles.css') }}" rel="stylesheet">
   @stack('pageStyles')
 </head>
 
@@ -40,7 +40,7 @@
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-  <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/js/sb-admin-2.min.js') }}"></script>
   @stack('dataTablesScripts')
   @stack('ajax_scripts')
 </body>

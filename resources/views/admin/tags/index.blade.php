@@ -55,7 +55,7 @@
 @endpush
 @push('ajax_scripts')
 <script src="{{ asset('assets/vendor/sweet-alert/sweetalert2.js') }}"></script>
-<script src="{{ asset('assets/local/tag.js') }}"></script>
+<script src="{{ asset('assets/local/tag.min.js') }}"></script>
 <script>
 	var table = $('#tagTable').DataTable({
 		processing : true,

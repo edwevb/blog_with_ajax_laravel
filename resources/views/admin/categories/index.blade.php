@@ -55,7 +55,7 @@
 
 @push('ajax_scripts')
 <script src="{{ asset('assets/vendor/sweet-alert/sweetalert2.js') }}"></script>
-<script src="{{ asset('assets/local/category.js') }}"></script>
+<script src="{{ asset('assets/dashboard/local/category.min.js') }}"></script>
 <script>
   var table = $('#categoryTable').DataTable({
     processing : true,

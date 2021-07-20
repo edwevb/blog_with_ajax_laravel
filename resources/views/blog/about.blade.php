@@ -22,7 +22,9 @@
 					<p>Hello, I'm Edward. Glad to see you here!.</p>
 				</div>
 				<p>Saat membuat blog ini, saya adalah seorang mahasiswa tingkat akhir yang berkuliah di Universitas xxxxxxxxx - berlokasi di kota satelit yang ramai, dimana kendaraan hanya berjarak sejengkal tiap senja (sebelum pandemi ya hehe).</p>
-				<a href="https://edwardevbert.netlify.app/" class="btn btn-outline-dark">GET IN TOUCH</a>
+				<div class="text-center">
+					<a href="https://edwardevbert.netlify.app/" class="btn btn-outline-dark">GET IN TOUCH</a>
+				</div>
 			</div>
 		</div>
 	</div>

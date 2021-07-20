@@ -18,7 +18,7 @@
 			<ul class="list-group">
 				<li class="list-group-item d-flex justify-content-between align-items-center">
 					<a href="{{ url('/categories/'.$category->slug) }}">{{$category->name}}</a>
-					<span class="badge bg-primary rounded-pill">Posts: {{$category->posts()->count()}}</span>
+					<span class="badge bg-primary rounded-pill">Posts: {{$category->totalPosts}}</span>
 				</li>
 			</ul>
 			@endforeach

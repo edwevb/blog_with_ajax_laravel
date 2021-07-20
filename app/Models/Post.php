@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 	protected $fillable = [
-		'user_id', 'category_id', 'title', 'body', 'slug', 'thumb'
+		'category_id', 'title', 'body', 'slug', 'publish'
 	];
 	protected $hidden = ['pivot'];
 
 	public function user(){
-		return $this->belongsTo('App\User', 'user_id');
+		return $this->belongsTo('App\User');
 	}
 
 	public function category(){
@@ -23,22 +23,24 @@ class Post extends Model
 		return $this->belongsToMany('App\Models\Tag', 'post_tag');
 	}
 
-	public function getLastPostAttribute(){
-		$post = Post::with('user:id,name','category:id,name,slug')
-		->orderBy('updated_at', 'desc')->take(2)->get();
-		return $post;
+	public function scopeActive($query, $value)
+	{
+		return $query->where('publish', $value);
+	}
+
+	public function getImageAttribute(){
+		return 'assets/dashboard/local/img/'.$this->thumb;
 	}
 
 	public function getMostViewedAttribute(){
 		return $this->with('user:id,name','category:id,name,slug')
-		->orderBy('views', 'desc')->take(5)->get();
+		->orderBy('views', 'desc')->where('publish', true)->take(5)->get();
 	}
 
-	public function getRelatedPosts($post){
-		$posts = Post::where([
+	public function relatedPosts($post){
+		return $post->where([
 			['category_id', $post->category_id],
 			['id', '!=', $post->id]
-		])->paginate(2);
-		return $posts;
+		])->active(true)->simplePaginate(2);
 	}
 }

@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\{Post, Category, Tag};
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 class PagesController extends Controller
 {
   public function index()
   {
-    $posts = Post::with('user','category', 'tags')->latest()->simplePaginate(4);
+    $posts = Post::with('user','category','tags')->active(true)->latest()->simplePaginate(4);
     return view('home',compact('posts'));
+  }
+
+  public function searchPosts(){
+    $keywords = request('keywords');
+    $posts = Post::with('user','category','tags')->where('title', 'like', "%$keywords%")->active(true)->latest()->simplePaginate(4);
+    
+    if ($posts->isEmpty() || empty($keywords)){
+      return redirect()->back()->with('err', 'We didn\'t find anything that matches your search :(');
+    }
+    return view('blog.search',compact('posts'));
   }
 
   public function showPost(Post $post)
@@ -19,18 +29,11 @@ class PagesController extends Controller
       Post::where('id', $post->id)->increment('views');
       session()->put($sessionID, 1);
     }
-    $post = Post::with('user','category')->firstWhere('id', $post->id);
+    $post = Post::with('user','category')->active(true)->firstWhere('id', $post->id);
+    if (!$post) {
+       throw new ModelNotFoundException;
+    }
     return view('blog.detail_post', compact('post'));
-  }
-
-  public function showCategory(Category $category){
-    $posts = $category->posts()->where('category_id', $category->id)->simplePaginate(2);
-    return view('blog.detail_category', compact('category', 'posts'));
-  }
-
-  public function showTags(Tag $tag){
-    $posts = $tag->posts()->simplePaginate(2);
-    return view('blog.detail_tags', compact('tag', 'posts'));
   }
 
   public function listCategories(){
@@ -45,5 +48,14 @@ class PagesController extends Controller
 
   public function about(){
     return view('blog.about');
+  }
+
+  public function showCategory(Category $category){
+    return view('blog.detail_category', compact('category'));
+  }
+
+  public function showTags(Tag $tag){
+    $posts = $tag->posts()->simplePaginate(2);
+    return view('blog.detail_tags', compact('tag', 'posts'));
   }
 }

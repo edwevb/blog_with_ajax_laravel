@@ -16,11 +16,11 @@
 	<div class="row gx-4 gx-lg-5 justify-content-center">
 		<div class="col-md-10 col-lg-8 col-xl-7">
 			<!-- Post preview-->
-			@foreach ($posts as $post)
+			@foreach ($tag->posts as $post)
 			<!-- Post-->
 			<div class="post-preview">
 				<a href="{{ url('/posts/'.$post->slug) }}">
-					<h5 class="post-title">{{$post->title}}</h5>
+					<h5 class="post-title" id="post-head">{{$post->title}}</h5>
 				</a>
 				@isset ($post->category)
 				<div class="post-subtitle">
@@ -38,7 +38,7 @@
 			@endforeach
 			<div class="d-flex">
 				<div class="mx-auto">
-					{!! $posts->links() !!}
+					{!! $tag->posts->links() !!}
 				</div>
 			</div>
 		</div>

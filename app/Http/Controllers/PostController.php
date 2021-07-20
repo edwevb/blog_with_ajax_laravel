@@ -5,6 +5,7 @@ use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 class PostController extends Controller
@@ -18,18 +19,15 @@ class PostController extends Controller
 
   public function store(PostRequest $request)
   {
-    $post = Post::create([
-      'user_id' => auth()->user()->id,
-      'category_id' => $request->category,
-      'title' => $request->title,
-      'body' => $request->body,
-      'slug' => \Str::slug($request->title)
-    ]);
+    $data = $request->all();
+    $data['slug'] = \Str::slug($request->title);
+    $data['category_id'] = $request->category;
 
-    $listTags = $request->tags;
-    if ($post && !empty($listTags))
+    $post = auth()->user()->posts()->create($data);
+
+    if ($post && !empty($data['tags']))
     {
-      $tagIds = $this->addTags($listTags);
+      $tagIds = $this->addTags($data['tags']);
       $post->tags()->sync($tagIds);
     }
 
@@ -49,19 +47,21 @@ class PostController extends Controller
 
   public function addTags($listTags){
     $tagIds = [];
-    foreach ($listTags as $val) {
-      $tags = Tag::firstOrCreate([
-        'name' => $val,
-        'slug' => \Str::slug($val)
-      ]);
-      array_push($tagIds, $tags->id);
+    if (!empty($listTags)) {
+      foreach ($listTags as $val) {
+        $tags = Tag::firstOrCreate([
+          'name' => $val,
+          'slug' => \Str::slug($val)
+        ]);
+        array_push($tagIds, $tags->id);
+      }
     }
     return $tagIds;
   }
 
   public function uploadImage($post, $thumb, $ext)
   {
-    $oldImage = public_path().'/'.'assets/local/img/'.$post->thumb;
+    $oldImage = public_path().'/'.'assets/dashboard/local/img/'.$post->thumb;
     if (isset($post->thumb) && $post->thumb != 'default_posts.png' && file_exists($oldImage))
     {
       unlink($oldImage);
@@ -69,8 +69,8 @@ class PostController extends Controller
 
     if ($thumb->isValid())
     {
-      $imageName = time().'.'.$ext;  
-      $thumb->move('assets/local/img', $imageName);
+      $imageName = $post->slug.time().'.'.$ext;  
+      $thumb->move('assets/dashboard/local/img/', $imageName);
       $post->thumb = $imageName;
       $post->save();
     }
@@ -90,48 +90,16 @@ class PostController extends Controller
     return $post;
   }
 
-  // public function getBodyImage($requestBody)
-  // {
-  //   $dom = new \DomDocument();
-  //   $dom->loadHtml($requestBody, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-  //   $imageFile = $dom->getElementsByTagName('img');
-
-  //   foreach($imageFile as $item => $img){
-  //     $data = $img->getAttribute('src');
-  //     if (isset($data) && !file_exists(public_path($data))) 
-  //     {
-  //       list($type, $data) = explode(';', $data);
-  //       list(, $data)      = explode(',', $data);
-  //       $imageDecoded      = base64_decode($data);
-  //       $imageName         = "/assets/local/img/posts/".time().$item.'.png';
-  //       $path              = public_path($imageName);
-  //       file_put_contents($path, $imageDecoded);
-
-  //       $img->removeAttribute('src');
-  //       $img->setAttribute('src', $imageName);
-  //     }
-  //   }
-  //   $requestBody = $dom->saveHTML();
-  //   return $requestBody;
-  // }
-
   public function update(PostRequest $request, Post $post)
   {
+    $data = $request->all();
+    $data['slug'] = \Str::slug($request->title);
+    $data['category_id'] = $request->category;
+    $post->update($data);
 
-    // $body =  $this->getBodyImage($request->body);
-
-    $post = Post::firstWhere('id', $post->id);
-    $post->update([
-      'category_id' => $request->category,
-      'title' => $request->title,
-      'body' => $request->body,
-      'slug' => \Str::slug($request->title)
-    ]);
-
-    $listTags = $request->tags;
-    if ($post && isset($listTags))
+    if ($post && !empty($data['tags']))
     {
-      $tagIds = $this->addTags($listTags);
+      $tagIds = $this->addTags($data['tags']);
       $post->tags()->sync($tagIds);
     }
 
@@ -152,38 +120,33 @@ class PostController extends Controller
 
   public function destroy(Post $post)
   {
-    $body      = $post->body;
-    $dom       = new \DomDocument();
-    $dom->loadHtml($body, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-    $imageFile = $dom->getElementsByTagName('img');
-
-    foreach($imageFile as $item => $img){
-      $data      = $img->getAttribute('src');
-      $imagePath = public_path($data);
-      if (file_exists($imagePath)){
-        unlink($imagePath);
-      }
-    }
-
-    $oldImage = public_path().'/'.'assets/local/img/'.$post->thumb;
-    if ($post->thumb != 'default_posts.png' && file_exists($oldImage))
+    if ($post->thumb != 'default_posts.png' && file_exists($post->image))
     {
-      unlink($oldImage);
+      unlink($post->image);
     }
+    $post->tags()->detach();
 
-    $post->tags()->detach($post->tags);
     $sessionID = 'blog_views'.$post->id;
-
     if (session()->has($sessionID))
     {
       session()->forget($sessionID);
     }
 
-    Post::destroy($post->id);
+    $post->delete();
 
     return response()->json([
       "message" => "Data has been deleted!",
       "type" => "delete",
+      "status" => 1
+    ], 200);
+  }
+
+  public function publish(Request $request, Post $post){
+    $status = $request->publish == 1 ? 0 : 1;
+    $post->update(['publish' => $status]);
+
+    return response()->json([
+      "message" => "The post has been updated!",
       "status" => 1
     ], 200);
   }
@@ -195,11 +158,16 @@ class PostController extends Controller
     ->editColumn('created_at', function ($row) {
       return $row->created_at->diffForHumans();
     })
-    ->editColumn('updated_at', function ($row) {
-      return $row->updated_at->diffForHumans();
-    })
     ->editColumn('total_tags', function ($row) {
       return $row->tags->count();
+    })
+    ->addColumn('active', function ($row) {
+      if ($row->publish) {
+        $btn = '<span data-active="'.$row->publish.'" value="'.$row->id.'" id="activePosts" class="badge badge-success">Active</span>';
+      }else{
+        $btn = '<span data-active="'.$row->publish.'" value="'.$row->id.'" id="activePosts" class="badge badge-danger">Inactive</span>';
+      }
+      return $btn;
     })
     ->addColumn('action', function($row){
       return 
@@ -207,11 +175,37 @@ class PostController extends Controller
       '<button value="'.$row->id.'" id ="editButton" class="btn btn-warning btn-sm m-1"><i class="fa fa-edit"></i></button>'.
       '<button value="'.$row->id.'" id ="deleteButton" class="btn btn-danger btn-sm m-1"><i class="fa fa-trash"></i></button>'
       ;
-    });
+    })
+    ->rawColumns(['active','action']);
     return $dt->toJson();
   }
 }
 
+
+// public function getBodyImage($requestBody)
+// {
+//   $dom = new \DomDocument();
+//   $dom->loadHtml($requestBody, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+//   $imageFile = $dom->getElementsByTagName('img');
+
+//   foreach($imageFile as $item => $img){
+//     $data = $img->getAttribute('src');
+//     if (isset($data) && !file_exists(public_path($data))) 
+//     {
+//       list($type, $data) = explode(';', $data);
+//       list(, $data)      = explode(',', $data);
+//       $imageDecoded      = base64_decode($data);
+//       $imageName         = "/assets/local/img/posts/".time().$item.'.png';
+//       $path              = public_path($imageName);
+//       file_put_contents($path, $imageDecoded);
+
+//       $img->removeAttribute('src');
+//       $img->setAttribute('src', $imageName);
+//     }
+//   }
+//   $requestBody = $dom->saveHTML();
+//   return $requestBody;
+// }
 
 // public function updateImage($post){
 //   $body = $post->body;

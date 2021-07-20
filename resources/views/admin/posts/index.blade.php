@@ -42,7 +42,7 @@
               <th>VIEWED</th>
               <th>TOTAL TAGS</th>
               <th>PUBLISHED</th>
-              <th>UPDATED</th>
+              <th>STATUS</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -70,7 +70,7 @@
 <script src="{{ asset('assets/vendor/summernote/summernote-bs4.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/prism/prism.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/summernote/plugin/prettify/summernote-ext-prettify.min.js') }}"></script>
-<script src="{{ asset('assets/local/post.min.js') }}"></script>
+<script src="{{ asset('assets/dashboard/local/post.min.js') }}"></script>
 <script>
   var table = $('#postTable').DataTable({
     processing : true,
@@ -83,7 +83,7 @@
     {data: 'views', name:'views'},
     {data: 'total_tags', name:'total_tags'},
     {data: 'created_at', name:'created_at'},
-    {data: 'updated_at', name:'updated_at'},
+    {data: 'active', name:'active'},
     {
       data: 'action', name:'action', 
       orderable :false, 
@@ -91,5 +91,6 @@
     }
     ]
   });
+
 </script>
 @endpush

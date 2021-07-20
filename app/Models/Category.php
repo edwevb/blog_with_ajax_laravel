@@ -14,8 +14,11 @@ class Category extends Model
 		return $this->hasMany('App\Models\Post');
 	}
 
-	public function getListCategoryAttribute(){
-		$category = $this->with('posts')->get();
-		return $category;
+	public function getTotalPostsAttribute(){
+		return $this->posts()->active(true)->count();
+	}
+
+	public function getPostsAttribute(){
+		return $this->posts()->active(true)->simplePaginate(2);
 	}
 }

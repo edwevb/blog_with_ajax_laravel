@@ -9,6 +9,7 @@ Route::get('/categories/{category:slug}', 'PagesController@showCategory')->name(
 Route::get('/tags/{tag:slug}', 'PagesController@showTags')->name('home.tags');
 Route::get('/list-tags', 'PagesController@listTags')->name('home.listTags');
 Route::get('/about', 'PagesController@about')->name('home.about');
+Route::get('search', 'PagesController@searchPosts')->name('search.posts');
 
 route::group(['prefix' => '/admin', 'middleware' => ['auth','CheckRole:1']],function()
 {
@@ -27,6 +28,7 @@ route::group(['prefix' => '/admin', 'middleware' => ['auth','CheckRole:1']],func
 	Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');
 	Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
 	Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
+	Route::post('/posts/publish/{post}', 'PostController@publish')->name('posts.publish');
 
 	Route::get('api.categories', 'CategoryController@apiCategories')->name('api.categories');
 	Route::get('/categories', 'CategoryController@index')->name('categories.index');

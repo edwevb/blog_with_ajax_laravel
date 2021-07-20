@@ -12,8 +12,8 @@
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item active">
-    <a class="nav-link" href="{{ url('/admin/dashboard') }}">
+  <li class="nav-item {{request()->is('admin/dashboard') ? 'active':''}}">
+    <a class="nav-link " href="{{ url('/admin/dashboard') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i><span>Dashboard</span>
     </a>
   </li>
@@ -28,15 +28,15 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+    <a class="nav-link {{request()->is('admin/posts') ||  request()->is('admin/categories') || request()->is('admin/tags') ? '':'collapsed'}}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
       <i class="fas fa-fw fa-cog"></i>
       <span>Article</span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseTwo" class="collapse {{request()->is('admin/posts') ||  request()->is('admin/categories') || request()->is('admin/tags') ? 'show':''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="{{ url('/admin/posts') }}">Posts</a>
-        <a class="collapse-item" href="{{ url('/admin/categories') }}">Categories</a>
-        <a class="collapse-item" href="{{ url('/admin/tags') }}">Tags</a>
+        <a class="collapse-item {{request()->is('admin/posts') ? 'active':''}}" href="{{ url('/admin/posts') }}">Posts</a>
+        <a class="collapse-item {{request()->is('admin/categories') ? 'active':''}}" href="{{ url('/admin/categories') }}">Categories</a>
+        <a class="collapse-item {{request()->is('admin/tags') ? 'active':''}}" href="{{ url('/admin/tags') }}">Tags</a>
       </div>
     </div>
   </li>

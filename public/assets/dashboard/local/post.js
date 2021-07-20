@@ -2,6 +2,21 @@ $('.modal').on('shown.bs.modal', function() {
   $(this).find('[autofocus]').focus();
 });
 
+$(document).on('click','#activePosts',function(){
+  const id = $(this).attr('value'),
+  _token = $('meta[name="csrf-token"]').attr('content'),
+  url = `/admin/posts/publish/${id}`,
+  status = $(this).data('active');
+
+  $.ajax({
+    method: 'POST',
+    url: url,
+    data: {publish:status, _token:_token},
+    success: res => successAlert(res.message),
+    error: res => console.log(res.responseText)
+  });
+});
+
 $(document).ready(function(){
   $('#body').summernote({
     placeholder: 'Write here..',
@@ -33,7 +48,7 @@ $(document).ready(function(){
 })
 
 let $selectCategory = $('#category').selectize({
- plugins: ["restore_on_backspace"]
+  plugins: ["restore_on_backspace"]
 }),
 selectCategory = $selectCategory,
 
@@ -138,9 +153,7 @@ $('#postsModal form').on('submit', function(e){
         title: 'Oops...',
         text: 'Something error, please check your input!',
         showCloseButton: true
-      }).then(()=>{
-        formValidationShow(xhr);
-      });
+      }).then(() => formValidationShow(xhr));
     }
   });
 });

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/codemirror/codemirror.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/codemirror/theme/monokai.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/summernote/summernote-bs4.min.css') }}">
-<link href="{{ asset('assets/vendor/prism/prism.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/prism/prism.min.css') }}" rel="stylesheet">
 @endpush
 @section('container')
 <div class="container-fluid">
@@ -18,7 +18,7 @@
 	</nav>
 	<h1 class="h3 mb-2 text-gray-800">Details Post</h1>
 	<div class="card shadow-sm my-4">
-		<img src="{{ asset('assets/local/img/'.$post->thumb) }}" class="card-img-top" alt="{{$post->slug}}">
+		<img src="{{ asset($post->image) }}" class="card-img-top" alt="{{$post->slug}}">
 		<div class="card-header py-3 bg-white">
 			<div class="d-flex flex-row align-items-center justify-content-between">
 				<h5 class="m-0 font-weight-bold text-primary">{{$post->title}}</h5>

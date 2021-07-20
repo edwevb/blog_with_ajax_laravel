@@ -1,6 +1,6 @@
 @extends('layouts.home_layouts', ['title' => $post->title, 'image' => $post->thumb])
 @push('editor_styles')
-<link href="{{ asset('assets/vendor/prism/prism.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/vendor/prism/prism.min.css') }}" rel="stylesheet">
 @endpush
 @section('container')
 <header class="masthead" style="background-image: url({{ asset('assets/blog/img/wave-dark.svg') }})">
@@ -40,12 +40,40 @@
 					@empty
 					@endforelse
 				</p>
+				<div class="text-center share">
+					<button class="btn btn-outline-dark btn-share btn-lg px-5 rounded-pill">SHARE</button>
+					<div id="socialShare" class="addthis_inline_share_toolbox_8sj8"></div>
+				</div>
+				<hr class="my-4" />
+				<div class="row justify-content-center mt-5 text-center">
+					<h3 class="posts-heading" id="post-head">Related Posts</h3>
+					@foreach ($post->relatedPosts($post) as $relatedPosts)
+					<div class="col-md-6">
+						<div class="post-preview">
+							<a href="{{ url('/posts/'.$relatedPosts->slug) }}">
+								<h5 class="post-title">{{$relatedPosts->title}}</h5>
+							</a>
+							@isset ($post->category)
+							<div class="post-subtitle">
+								Category: <a href="{{ url('/categories/'.$relatedPosts->category->slug) }}">{{$relatedPosts->category->name}}</a>
+							</div>
+							@endisset
+							<p class="post-meta">
+								Posted by
+								<a href="{{ url('/about') }}">{{$relatedPosts->user->name}}</a>
+								on {{$relatedPosts->created_at->format('F d, Y')}}
+							</p>
+						</div>
+					</div>
+					@endforeach
+				</div>
+				<div class="d-flex">
+					<div class="mx-auto">
+						{!! $post->relatedPosts($post)->links() !!}
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="text-center share">
-		<button class="btn btn-outline-dark btn-share btn-lg px-5 rounded-pill">SHARE</button>
-		<div id="socialShare" class="addthis_inline_share_toolbox_8sj8"></div>
 	</div>
 </article>
 

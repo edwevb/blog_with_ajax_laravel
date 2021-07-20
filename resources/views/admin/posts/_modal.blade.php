@@ -17,8 +17,7 @@
           <div class="row row-cols-1 row-cols-lg-2">
             <div class="col">
               <div class="form-group">
-                <label for="category">Select Category</label>
-                <select class="form-control" id="category" name="category">
+                <select class="form-control" id="category" name="category" placeholder="Select Category">
                   @foreach ($dataCategories as $categories)
                   <option value={{$categories->id}}>{{$categories->name}}</option>
                   @endforeach
@@ -27,8 +26,7 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <label for="tags">Tags</label>
-                <select class="form-control" id="tags" name="tags" multiple="multiple">
+                <select class="form-control" id="tags" name="tags" multiple="multiple" placeholder="Select Tags">
                   @foreach ($dataTags as $tags)
                   <option data-description="something" value={{$tags->name}}>{{$tags->name}}</option>
                   @endforeach
