@@ -21,7 +21,7 @@ route::group(['prefix' => '/admin', 'middleware' => ['auth','CheckRole:1']],func
 		return view('admin.index');
 	});
 
-	Route::get('api.posts', 'PostController@apiPosts')->name('api.posts');
+	Route::get('/api/posts', 'PostController@apiPosts')->name('api.posts');
 	Route::get('/posts', 'PostController@index')->name('posts.index');
 	Route::post('/posts', 'PostController@store')->name('posts.store');
 	Route::get('/posts/{post:slug}', 'PostController@show')->name('posts.show');

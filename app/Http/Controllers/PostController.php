@@ -152,16 +152,14 @@ class PostController extends Controller
   }
 
   public function apiPosts(){
-    $posts = Post::with('user:id,name')->orderBy('created_at', 'DESC')->get();
-    $dt = DataTables::of($posts);
+    $query = Post::getData();
+    $dt = DataTables::of($query);
+
     $dt->addIndexColumn()
     ->editColumn('created_at', function ($row) {
-      return $row->created_at->diffForHumans();
+      return $row->created_at->format('d F, Y h:i:sa');
     })
-    ->editColumn('total_tags', function ($row) {
-      return $row->tags->count();
-    })
-    ->addColumn('active', function ($row) {
+    ->editColumn('publish', function ($row) {
       if ($row->publish) {
         $btn = '<span data-active="'.$row->publish.'" value="'.$row->id.'" id="activePosts" class="badge badge-success">Active</span>';
       }else{
@@ -171,12 +169,14 @@ class PostController extends Controller
     })
     ->addColumn('action', function($row){
       return 
-      '<a href="/admin/posts/'.$row->slug.'" id ="showButton" class="btn btn-info btn-sm m-1"><i class="fa fa-search-plus"></i></a>'.
-      '<button value="'.$row->id.'" id ="editButton" class="btn btn-warning btn-sm m-1"><i class="fa fa-edit"></i></button>'.
-      '<button value="'.$row->id.'" id ="deleteButton" class="btn btn-danger btn-sm m-1"><i class="fa fa-trash"></i></button>'
+      '<div class="d-flex justify-content-around">
+      <a href="/admin/posts/'.$row->slug.'" id ="showButton" class="btn btn-info btn-sm"><i class="fa fa-search-plus"></i></a>'.
+      '<button value="'.$row->id.'" id="editButton" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>'.
+      '<button value="'.$row->id.'" id="deleteButton" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></div>'
       ;
     })
-    ->rawColumns(['active','action']);
+    ->removeColumn('slug')
+    ->rawColumns(['publish','action','test']);
     return $dt->toJson();
   }
 }

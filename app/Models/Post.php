@@ -9,6 +9,7 @@ class Post extends Model
 	protected $fillable = [
 		'category_id', 'title', 'body', 'slug', 'publish'
 	];
+	
 	protected $hidden = ['pivot'];
 
 	public function user(){
@@ -21,6 +22,11 @@ class Post extends Model
 
 	public function tags(){
 		return $this->belongsToMany('App\Models\Tag', 'post_tag');
+	}
+
+	public static function getData()
+	{
+		return Post::with('user:id,name')->select(['posts.id','posts.title','posts.slug','posts.user_id','posts.views','posts.publish','posts.created_at'])->withCount('tags');
 	}
 
 	public function scopeActive($query, $value)

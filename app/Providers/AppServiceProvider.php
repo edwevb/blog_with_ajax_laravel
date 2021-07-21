@@ -22,7 +22,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    { 
+        \Schema::defaultStringLength(191);
+        date_default_timezone_set("Asia/Jakarta");
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
         }

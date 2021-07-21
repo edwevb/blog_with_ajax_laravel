@@ -16,24 +16,25 @@ class PagesController extends Controller
     $keywords = request('keywords');
     $posts = Post::with('user','category','tags')->where('title', 'like', "%$keywords%")->active(true)->latest()->simplePaginate(4);
     
-    if ($posts->isEmpty() || empty($keywords)){
-      return redirect()->back()->with('err', 'We didn\'t find anything that matches your search :(');
-    }
+    if ($posts->isEmpty() || empty($keywords)) throw new ModelNotFoundException;
     return view('blog.search',compact('posts'));
   }
 
   public function showPost(Post $post)
   {
-    $sessionID = 'blog_views'.$post->id;
+    $this->addViewSession($post->id);
+
+    $post = Post::with('user','category')->active(true)->firstWhere('id', $post->id);
+    if (!$post) throw new ModelNotFoundException;
+    return view('blog.detail_post', compact('post'));
+  }
+
+  public function addViewSession($id){
+    $sessionID = 'blog_views'.$id;
     if (!session()->has($sessionID)) {
-      Post::where('id', $post->id)->increment('views');
+      Post::where('id', $id)->increment('views');
       session()->put($sessionID, 1);
     }
-    $post = Post::with('user','category')->active(true)->firstWhere('id', $post->id);
-    if (!$post) {
-       throw new ModelNotFoundException;
-    }
-    return view('blog.detail_post', compact('post'));
   }
 
   public function listCategories(){

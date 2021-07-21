@@ -37,11 +37,11 @@
           <thead>
             <tr>
               <th>#</th>
-              <th class="text-sm">TITLE</th>
+              <th>TITLE</th>
               <th>AUTHOR</th>
               <th>VIEWED</th>
               <th>TOTAL TAGS</th>
-              <th>PUBLISHED</th>
+              <th>CREATED</th>
               <th>STATUS</th>
               <th>ACTIONS</th>
             </tr>
@@ -77,20 +77,22 @@
     serverSide: true,
     ajax:"{{route('api.posts')}}",
     columns: [
-    {data: 'DT_RowIndex', name:'DT_RowIndex'},
-    {data: 'title', name:'title'},
-    {data: 'user.name', name:'user'},
-    {data: 'views', name:'views'},
-    {data: 'total_tags', name:'total_tags'},
-    {data: 'created_at', name:'created_at'},
-    {data: 'active', name:'active'},
-    {
-      data: 'action', name:'action', 
-      orderable :false, 
-      searchable:false
-    }
+    {data: 'DT_RowIndex', name:'DT_RowIndex',orderable: false, searchable: false},
+    {data: 'title', name:'posts.title'},
+    {data: 'user.name', name:'user.name',},
+    {data: 'views', name:'posts.views'},
+    {data: 'tags_count', name:'tags_count', searchable:false},
+    {data: 'created_at', name:'posts.created_at'},
+    {data: 'publish', name:'publish'},
+    {data: 'action', name:'action', orderable :false, searchable:false},
     ]
   });
-
 </script>
 @endpush
+<script>
+  // document.addEventListener('click', function(e){
+  //   if(e.target && e.target.id == 'testButton'){
+  //        console.log(e.target.value);
+  //      }
+  //    });
+</script>
