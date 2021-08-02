@@ -1,6 +1,7 @@
 @extends('layouts.home_layouts', ['title' => $post->title, 'image' => $post->thumb])
 @push('editor_styles')
 <link href="{{ asset('assets/vendor/prism/prism.min.css') }}" rel="stylesheet">
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6107ea98b819bf001391768c&product=inline-share-buttons" async="async"></script>
 @endpush
 @section('container')
 <header class="masthead" style="background-image: url({{ asset('assets/blog/img/wave-dark.svg') }})">
@@ -42,7 +43,11 @@
 				</p>
 				<div class="text-center share">
 					<button class="btn btn-outline-dark btn-share btn-lg px-5 rounded-pill">SHARE</button>
-					<div id="socialShare" class="addthis_inline_share_toolbox_8sj8"></div>
+					<div id="socialShare">
+						<div class="sharethis-inline-share-buttons"></div>
+					</div>
+					
+					{{-- <div id="socialShare" class="addthis_inline_share_toolbox_8sj8"></div> --}}
 				</div>
 				<hr class="my-4" />
 				<div class="row justify-content-center mt-5 text-center">
@@ -80,7 +85,7 @@
 @endsection
 @push('share')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eef7ac28f548f31"></script>
+{{-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eef7ac28f548f31"></script> --}}
 <script>
 	$(document).ready(function(){
 		$(".btn-share").click(function(){

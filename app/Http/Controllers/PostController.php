@@ -69,7 +69,7 @@ class PostController extends Controller
 
     if ($thumb->isValid())
     {
-      $imageName = $post->slug.time().'.'.$ext;  
+      $imageName = $post->slug.time().'.'.$ext;
       $thumb->move('assets/dashboard/local/img/', $imageName);
       $post->thumb = $imageName;
       $post->save();
