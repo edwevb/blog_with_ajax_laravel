@@ -1,7 +1,6 @@
 @extends('layouts.home_layouts', ['title' => $post->title, 'image' => $post->thumb])
 @push('editor_styles')
 <link href="{{ asset('assets/vendor/prism/prism.min.css') }}" rel="stylesheet">
-<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6107ea98b819bf001391768c&product=inline-share-buttons" async="async"></script>
 @endpush
 @section('container')
 <header class="masthead" style="background-image: url({{ asset('assets/blog/img/wave-dark.svg') }})">

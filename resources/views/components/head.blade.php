@@ -36,4 +36,5 @@
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/bootstrap-5-styles.min.css') }}" />
   <link type="text/css" rel="stylesheet" href="{{ asset('assets/blog/css/page.styles.min.css') }}" />
   @stack('editor_styles')
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6107ea98b819bf001391768c&product=inline-share-buttons" async="async"></script>
 </head>
